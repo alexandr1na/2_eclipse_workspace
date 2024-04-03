@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="java.io.FileReader"/>
+    <fullyQualifiedTypeName name="org.openqa.selenium.WebDriver"/>
+    <fullyQualifiedTypeName name="java.util.Properties"/>
+    <fullyQualifiedTypeName name="baseTest.BaseClassTest"/>
+    <fullyQualifiedTypeName name="org.openqa.selenium.By"/>
+    <fullyQualifiedTypeName name="org.testng.annotations.Test"/>
+    <fullyQualifiedTypeName name="org.testng.annotations.DataProvider"/>
+    <fullyQualifiedTypeName name="org.testng.annotations.AfterMethod"/>
+    <fullyQualifiedTypeName name="org.testng.annotations.BeforeMethod"/>
+</qualifiedTypeNameHistroy>

@@ -17,7 +17,7 @@ public class HomePage {
 	public void checkout() throws InterruptedException {
 		driverChrome.findElement(By.xpath("/html/body/div[2]/header/div[2]/div[1]/a")).click();
 		driverChrome.findElement(By.xpath("//*[@id=\"top-cart-btn-checkout\"]")).click();
-		Thread.sleep(5000);
+		Thread.sleep(7000);
 	}
 
 }

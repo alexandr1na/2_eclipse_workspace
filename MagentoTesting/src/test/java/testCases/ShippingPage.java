@@ -53,6 +53,34 @@ public class ShippingPage {
 		Thread.sleep(3000);
 	}
 
+	public void enterAddress2(String address2) {
+		driverChrome.findElement(By.xpath("//input[@name='street[0]']")).click();	
+		driverChrome.findElement(By.xpath("//input[@name='street[0]']")).sendKeys("Addresa printesa 76");
+	}
+
+	public void enterCountry2() {
+		driverChrome.findElement(By.xpath("/html/body/div[2]/main/div[2]/div/div[3]/div[4]/ol/li[1]/div[2]/form/div/div[5]/div/select")).click();
+		driverChrome.findElement(By.xpath("/html/body/div[2]/main/div[2]/div/div[3]/div[4]/ol/li[1]/div[2]/form/div/div[5]/div/select")).sendKeys(Keys.ARROW_DOWN);
+		driverChrome.findElement(By.xpath("/html/body/div[2]/main/div[2]/div/div[3]/div[4]/ol/li[1]/div[2]/form/div/div[5]/div/select")).sendKeys(Keys.ENTER);	
+	}
+
+	public void enterCity2(String string) {
+		driverChrome.findElement(By.xpath("/html/body/div[2]/main/div[2]/div/div[3]/div[4]/ol/li[1]/div[2]/form/div/div[4]/div/input")).click();
+		driverChrome.findElement(By.xpath("/html/body/div[2]/main/div[2]/div/div[3]/div[4]/ol/li[1]/div[2]/form/div/div[4]/div/input")).sendKeys("Alebama");	
+	}
+
+	public void enterPostalCode2(String string) {
+		driverChrome.findElement(By.xpath("/html/body/div[2]/main/div[2]/div/div[3]/div[4]/ol/li[1]/div[2]/form/div/div[7]/div/input")).sendKeys("20444");	
+	}
+
+	public void enterTelNumber2(String string) {
+		driverChrome.findElement(By.xpath("/html/body/div[2]/main/div[2]/div/div[3]/div[4]/ol/li[1]/div[2]/form/div/div[9]/div/input")).sendKeys("2044456789");
+	}
+
+	public void enterShipping() {
+		driverChrome.findElement(By.xpath("/html/body/div[2]/main/div[2]/div/div[3]/div[4]/ol/li[2]/div/div[3]/form/div[1]/table/tbody/tr[1]/td[1]/input")).click();		
+	}
+
 	
 
 }

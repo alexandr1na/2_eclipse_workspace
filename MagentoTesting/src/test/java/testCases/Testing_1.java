@@ -20,9 +20,12 @@ public class Testing_1 {
 		
 		Assert.assertTrue(isOrderPageDispalyed);
 	}
+	
+	
+	
 
 	@Test
-	public static void testOrderPlacementWithAnonymiusUser() throws InterruptedException {
+	public static void testOrderPlacementWithAnonymiusUserRefactored() throws InterruptedException {
 		
 	//Codul de plasare a unei comenzi pentru un utilizator ne-logat (TestCase_2)
 		
@@ -31,34 +34,37 @@ public class Testing_1 {
 		driverChrome.manage().window().maximize();
 		driverChrome.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		
+		HomePage homePage = new HomePage(driverChrome);
+		ProductDetailsPage productDetailsPage = new ProductDetailsPage(driverChrome);
+		ShippingPage shippingPage = new ShippingPage(driverChrome);
+		PaymentPage paymentPage = new PaymentPage(driverChrome);
+		SuccessPage successPage = new SuccessPage(driverChrome);
+		
 	//In jos-> selectarea produsului
-		driverChrome.findElement(By.xpath("//*[@id=\"maincontent\"]/div[3]/div/div[3]/div[3]/div/div/ol/li[1]/div/a/span/span/img")).click();
-		driverChrome.findElement(By.xpath("//*[@id=\"option-label-size-143-item-166\"]")).click();
-		driverChrome.findElement(By.xpath("//*[@id=\"option-label-color-93-item-50\"]")).click();
-		driverChrome.findElement(By.xpath("//*[@id=\"product-addtocart-button\"]/span")).click();
-		Thread.sleep(4000);		
-		driverChrome.findElement(By.xpath("/html/body/div[2]/header/div[2]/div[1]/a")).click();
-		driverChrome.findElement(By.xpath("//*[@id=\"top-cart-btn-checkout\"]")).click();
-		Thread.sleep(5000);
+		homePage.tapOnFirstProduct();
+		productDetailsPage.selectSizeAndColor();
+		productDetailsPage.addToCart();
+		homePage.checkout();
 		
 	//In jos-> completarea datelor adresei
-		driverChrome.findElement(By.xpath("//*[@id=\"customer-email\"]")).sendKeys("test@gmail.com");
-		driverChrome.findElement(By.xpath("/html/body/div[2]/main/div[2]/div/div[3]/div[4]/ol/li[1]/div[2]/form[2]/div/div[1]/div/input")).sendKeys("Stela");
-		driverChrome.findElement(By.xpath("/html/body/div[2]/main/div[2]/div/div[3]/div[4]/ol/li[1]/div[2]/form[2]/div/div[2]/div/input")).sendKeys("Kodac");
-		driverChrome.findElement(By.xpath("/html/body/div[2]/main/div[2]/div/div[3]/div[4]/ol/li[1]/div[2]/form[2]/div/fieldset/div/div[1]/div/input")).sendKeys("Addresa printesa 76");
-		driverChrome.findElement(By.xpath("/html/body/div[2]/main/div[2]/div/div[3]/div[4]/ol/li[1]/div[2]/form[2]/div/div[4]/div/input")).sendKeys("Marte");
-		driverChrome.findElement(By.xpath("/html/body/div[2]/main/div[2]/div/div[3]/div[4]/ol/li[1]/div[2]/form[2]/div/div[7]/div/input")).sendKeys("204487");
-		driverChrome.findElement(By.xpath("/html/body/div[2]/main/div[2]/div/div[3]/div[4]/ol/li[1]/div[2]/form[2]/div/div[8]/div/select")).click();
-		driverChrome.findElement(By.xpath("/html/body/div[2]/main/div[2]/div/div[3]/div[4]/ol/li[1]/div[2]/form[2]/div/div[8]/div/select")).sendKeys(Keys.ARROW_DOWN);
-		driverChrome.findElement(By.xpath("/html/body/div[2]/main/div[2]/div/div[3]/div[4]/ol/li[1]/div[2]/form[2]/div/div[8]/div/select")).sendKeys(Keys.ENTER);
-		driverChrome.findElement(By.xpath("/html/body/div[2]/main/div[2]/div/div[3]/div[4]/ol/li[1]/div[2]/form[2]/div/div[9]/div/input")).sendKeys("2044456789");
-		Thread.sleep(3000);
+		shippingPage.enterEmail("test@gmail.com");
+		shippingPage.enterFirstName("Stela");
+		shippingPage.enterLastName("Kodac");
+		shippingPage.enterAddress("Addresa printesa 76");
+		shippingPage.enterCity("Marte");
+		shippingPage.enterPostalCode("204487");
+		shippingPage.enterCountry();
+		shippingPage.enterTelNumber("2044456789");
 		
 	//In jos-> plasarea order-ului
-		driverChrome.findElement(By.xpath("/html/body/div[2]/main/div[2]/div/div[3]/div[4]/ol/li[2]/div/div[3]/form/div[3]/div/button/span")).click();
-		Thread.sleep(3000);
-		driverChrome.findElement(By.xpath("/html/body/div[3]/main/div[2]/div/div[3]/div[4]/ol/li[3]/div/form/fieldset/div[1]/div/div/div[2]/div[2]/div[4]/div/button")).click();		
+		paymentPage.placeOrder();
+		
+	// verifica order confirmation se afiseaza: "Thank you for your order!"
+		successPage.confirmOrder();
+		
 	}
+	
+	
 	
 	
 	@Test
@@ -71,30 +77,34 @@ public class Testing_1 {
 		driverChrome.manage().window().maximize();
 		driverChrome.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		
-	//In jos-> selectarea produsului
-		driverChrome.findElement(By.xpath("//*[@id=\"maincontent\"]/div[3]/div/div[3]/div[3]/div/div/ol/li[1]/div/a/span/span/img")).click();
-		driverChrome.findElement(By.xpath("//*[@id=\"option-label-size-143-item-166\"]")).click();
-		driverChrome.findElement(By.xpath("//*[@id=\"option-label-color-93-item-50\"]")).click();
-		driverChrome.findElement(By.xpath("//*[@id=\"product-addtocart-button\"]/span")).click();
-		Thread.sleep(4000);
-		driverChrome.findElement(By.xpath("/html/body/div[2]/header/div[2]/div[1]/a")).click();
-		driverChrome.findElement(By.xpath("//*[@id=\"top-cart-btn-checkout\"]")).click();
-		Thread.sleep(6000);
+
+		HomePage homePage = new HomePage(driverChrome);
+		ProductDetailsPage productDetailsPage = new ProductDetailsPage(driverChrome);
+		ShippingPage shippingPage = new ShippingPage(driverChrome);
+		PaymentPage paymentPage = new PaymentPage(driverChrome);
+		SuccessPage successPage = new SuccessPage(driverChrome);
 		
-	//In jos-> completarea datelor adresei	
-		driverChrome.findElement(By.xpath("//*[@id=\"customer-email\"]")).sendKeys("pisica.cute@gmail.com");
-		driverChrome.findElement(By.xpath("/html/body/div[2]/main/div[2]/div/div[3]/div[4]/ol/li[1]/div[2]/form[2]/div/div[1]/div/input")).sendKeys("Stev");
-		driverChrome.findElement(By.xpath("/html/body/div[2]/main/div[2]/div/div[3]/div[4]/ol/li[1]/div[2]/form[2]/div/div[2]/div/input")).sendKeys("Cozonac");
-		driverChrome.findElement(By.xpath("/html/body/div[2]/main/div[2]/div/div[3]/div[4]/ol/li[1]/div[2]/form[2]/div/fieldset/div/div[1]/div/input")).sendKeys("Strada iepuras, 02");
-		driverChrome.findElement(By.xpath("/html/body/div[2]/main/div[2]/div/div[3]/div[4]/ol/li[1]/div[2]/form[2]/div/div[4]/div/input")).sendKeys("Pluto");
-		driverChrome.findElement(By.xpath("/html/body/div[2]/main/div[2]/div/div[3]/div[4]/ol/li[1]/div[2]/form[2]/div/div[7]/div/input")).sendKeys("204487");
-		driverChrome.findElement(By.xpath("/html/body/div[2]/main/div[2]/div/div[3]/div[4]/ol/li[1]/div[2]/form[2]/div/div[8]/div/select")).click();
-		driverChrome.findElement(By.xpath("/html/body/div[2]/main/div[2]/div/div[3]/div[4]/ol/li[1]/div[2]/form[2]/div/div[8]/div/select")).sendKeys(Keys.ARROW_DOWN);	
-		driverChrome.findElement(By.xpath("/html/body/div[2]/main/div[2]/div/div[3]/div[4]/ol/li[1]/div[2]/form[2]/div/div[8]/div/select")).sendKeys(Keys.ENTER);
-		Thread.sleep(6000);
-	
-	//In jos-> click pe "Next" si putem vedea mesajul de error 
-		driverChrome.findElement(By.xpath("/html/body/div[2]/main/div[2]/div/div[3]/div[4]/ol/li[2]/div/div[3]/form/div[3]/div/button/span")).click();
+	//In jos-> selectarea produsului
+		homePage.tapOnFirstProduct();
+		productDetailsPage.selectSizeAndColor();
+		productDetailsPage.addToCart();
+		homePage.checkout();
+		
+	//In jos-> completarea datelor adresei
+		shippingPage.enterEmail("test@gmail.com");
+		shippingPage.enterFirstName("Stela");
+		shippingPage.enterLastName("Kodac");
+		shippingPage.enterAddress("Addresa printesa 76");
+		shippingPage.enterCity("Marte");
+		shippingPage.enterPostalCode("204487");
+		shippingPage.enterCountry();
+		
+	//In jos-> click pe "Next" si putem vedea mesajul de error
+		paymentPage.placeOrder();
+		
+	//verificate error message is shown
+		successPage.confirmOrder2();
+		
 	}
 	
 	
@@ -135,6 +145,7 @@ public class Testing_1 {
 		driverChrome.findElement(By.xpath("/html/body/div[2]/main/div[2]/div/div[3]/div[4]/ol/li[2]/div/div[3]/form/div[3]/div/button/span")).click();
 		
 
+		// verifica error message is displayed
 	}
 	
 	@Test
@@ -185,7 +196,9 @@ public class Testing_1 {
 	//In jos-> plasarea order-ului
 		driverChrome.findElement(By.xpath("/html/body/div[2]/main/div[2]/div/div[3]/div[4]/ol/li[2]/div/div[3]/form/div[3]/div/button")).click();
 		driverChrome.findElement(By.cssSelector("#checkout-payment-method-load > div > div > div.payment-method._active > div.payment-method-content > div.actions-toolbar > div > button > span")).click();
-    }
+    
+	    // verificate confirmation page is displayed
+	}
 	
 	
 	
@@ -234,6 +247,8 @@ public class Testing_1 {
 		
 	//In jos-> click pe "Next" si putem vedea mesajul de error 
 		driverChrome.findElement(By.xpath("/html/body/div[2]/main/div[2]/div/div[3]/div[4]/ol/li[2]/div/div[3]/form/div[3]/div/button")).click();	
-    }
+   
+		// verifica error message
+	}
 
 }

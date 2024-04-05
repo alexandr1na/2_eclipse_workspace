@@ -19,4 +19,3 @@ This Maven project contains automated tests for placing orders on the Magento we
 Contributors
 [Alexandrina] - [alexandrina.cosciuc@gmail.com]
 Feel free to contribute to this project by submitting pull requests or reporting issues. For any questions or inquiries, please contact [alexandrina.cosciuc@gmail.com].
-

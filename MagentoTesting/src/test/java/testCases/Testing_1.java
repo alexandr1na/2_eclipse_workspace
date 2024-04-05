@@ -160,20 +160,29 @@ public class Testing_1 {
 		driverChrome.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		
 		HomePage homePage = new HomePage(driverChrome);
+		LoginPage loginPage = new LoginPage(driverChrome);
 		ProductDetailsPage productDetailsPage = new ProductDetailsPage(driverChrome);
 		ShippingPage shippingPage = new ShippingPage(driverChrome);
 		PaymentPage paymentPage = new PaymentPage(driverChrome);
 		SuccessPage successPage = new SuccessPage(driverChrome);
 		
+		
 	//In jos-> crearea unui user dinamic
-		driverChrome.findElement(By.xpath("//div[@class='panel header']//a[normalize-space()='Create an Account']")).click();
-		driverChrome.findElement(By.cssSelector("#firstname")).sendKeys("ANA"+System.currentTimeMillis());
-		driverChrome.findElement(By.xpath("//input[@id='lastname']")).sendKeys("BUSUIOC"+System.currentTimeMillis());
-		driverChrome.findElement(By.xpath("//input[@id='email_address']")).sendKeys("busuioc.ana"+System.currentTimeMillis()+"@gmail.com");
-		driverChrome.findElement(By.xpath("//input[@id='password']")).sendKeys("auto_ANA9");
-		driverChrome.findElement(By.xpath("//input[@id='password-confirmation']")).sendKeys("auto_ANA9");
-		driverChrome.findElement(By.xpath("//button[@title='Create an Account']")).click();
-		driverChrome.findElement(By.xpath("/html/body/div[2]/header/div[2]/a/img")).click();
+		homePage.loginUser();
+		loginPage.loginFirstName("ANA"+System.currentTimeMillis());
+		loginPage.loginLastName("BUSUIOC"+System.currentTimeMillis());
+		loginPage.loginEmail("busuioc.ana"+System.currentTimeMillis());
+		loginPage.loginPass("auto_ANA9");
+		loginPage.loginConfirmPass("auto_ANA9");
+		loginPage.loginCreate();
+		homePage.reload();
+		//driverChrome.findElement(By.cssSelector("#firstname")).sendKeys("ANA"+System.currentTimeMillis());
+		//driverChrome.findElement(By.xpath("//input[@id='lastname']")).sendKeys("BUSUIOC"+System.currentTimeMillis());
+		//driverChrome.findElement(By.xpath("//input[@id='email_address']")).sendKeys("busuioc.ana"+System.currentTimeMillis()+"@gmail.com");
+		//driverChrome.findElement(By.xpath("//input[@id='password']")).sendKeys("auto_ANA9");
+		//driverChrome.findElement(By.xpath("//input[@id='password-confirmation']")).sendKeys("auto_ANA9");
+		//driverChrome.findElement(By.xpath("//button[@title='Create an Account']")).click();
+		
 	
 		//In jos-> selectarea produsului
 		homePage.tapOnFirstProduct();
@@ -190,14 +199,18 @@ public class Testing_1 {
 		shippingPage.enterTelNumber2("2044456789");
 		shippingPage.enterShipping();
 	
-//		driverChrome.findElement(By.xpath("/html/body/div[2]/main/div[2]/div/div[3]/div[4]/ol/li[2]/div/div[3]/form/div[1]/table/tbody/tr[1]/td[1]/input")).click();		
-//		System.out.println(driverChrome.findElement(By.xpath("/html/body/div[2]/main/div[2]/div/div[3]/div[4]/ol/li[2]/div/div[3]/form/div[1]/table/tbody/tr[1]/td[1]/input")).isSelected());
+		
+	////In jos-> plasarea order-ului
+		paymentPage.placeOrder();
+				
+	//verificate confirmation page is displayed
+		successPage.confirmOrder2();
+
 	
-	//In jos-> plasarea order-ului
-		driverChrome.findElement(By.xpath("/html/body/div[2]/main/div[2]/div/div[3]/div[4]/ol/li[2]/div/div[3]/form/div[3]/div/button")).click();
-		driverChrome.findElement(By.cssSelector("#checkout-payment-method-load > div > div > div.payment-method._active > div.payment-method-content > div.actions-toolbar > div > button > span")).click();
+		//driverChrome.findElement(By.xpath("/html/body/div[2]/main/div[2]/div/div[3]/div[4]/ol/li[2]/div/div[3]/form/div[3]/div/button")).click();
+		
+		//driverChrome.findElement(By.cssSelector("#checkout-payment-method-load > div > div > div.payment-method._active > div.payment-method-content > div.actions-toolbar > div > button > span")).click();
     
-	    // verificate confirmation page is displayed
 	}
 	
 	

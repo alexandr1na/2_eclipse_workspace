@@ -20,4 +20,13 @@ public class HomePage {
 		Thread.sleep(7000);
 	}
 
+	public void loginUser() {
+		driverChrome.findElement(By.xpath("//div[@class='panel header']//a[normalize-space()='Create an Account']")).click();
+	}
+
+	public void reload() {
+		driverChrome.findElement(By.xpath("/html/body/div[2]/header/div[2]/a/img")).click();
+		
+	}
+
 }

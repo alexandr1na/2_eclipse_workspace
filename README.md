@@ -6,7 +6,6 @@ This Maven project contains automated tests for placing orders on the Magento we
 - Clone the repository to your local machine.
 - Ensure you have Maven installed.
 - Make sure you have the latest version of Chrome installed, as the tests use ChromeDriver for browser automation.
-- Update the chromedriver path in the MagentoTests class with the path to your ChromeDriver executable.
 - Open a terminal or command prompt and navigate to the project directory.
 - Run the command mvn test to execute all the tests
 

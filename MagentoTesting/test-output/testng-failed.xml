@@ -3,12 +3,12 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="testCases.Testing_1">
+      <class name="testCases.MagentoTests">
         <methods>
+          <include name="testOrderPlacementWithAnonymiusUserRefactored"/>
           <include name="setUp"/>
-          <include name="testOrderPlacementWithLoggedUserWithoutShippingMethod"/>
         </methods>
-      </class> <!-- testCases.Testing_1 -->
+      </class> <!-- testCases.MagentoTests -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

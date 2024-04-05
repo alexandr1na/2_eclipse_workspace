@@ -14,7 +14,7 @@ public class SuccessPage {
 
 	public void confirmOrder() {
 
-		boolean confirmationPageIsDisplayed = driverChrome.findElement(By.xpath("/html/body/div[2]/main/div[3]/div/div[3]/div/div/a/span")).isDisplayed();
+		boolean confirmationPageIsDisplayed = driverChrome.findElement(By.cssSelector("#maincontent > div.columns > div > div.checkout-success > div > div > a")).isDisplayed();
 		
 		Assert.assertTrue(confirmationPageIsDisplayed);
 	}
@@ -26,6 +26,12 @@ public class SuccessPage {
 		Assert.assertTrue(confirmationPageIsDisplayed);
 		
 		
+	}
+
+	public void confirmOrderWithoutShipping() {
+		boolean confirmationPageIsDisplayed = driverChrome.findElement(By.cssSelector("#co-shipping-method-form > div.message.notice > span")).isDisplayed();
+		
+		Assert.assertTrue(confirmationPageIsDisplayed);
 	}
 
 }

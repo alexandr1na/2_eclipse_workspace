@@ -5,7 +5,8 @@
     <classes>
       <class name="testCases.Testing_1">
         <methods>
-          <include name="testOrderPlacementWithLoggedUser"/>
+          <include name="setUp"/>
+          <include name="testOrderPlacementWithLoggedUserWithoutShippingMethod"/>
         </methods>
       </class> <!-- testCases.Testing_1 -->
     </classes>

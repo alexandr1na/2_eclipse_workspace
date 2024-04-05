@@ -18,26 +18,26 @@ public class ShippingPage {
 	}
 
 	public void enterFirstName(String FName) {
-		driverChrome.findElement(By.xpath("/html/body/div[2]/main/div[2]/div/div[3]/div[4]/ol/li[1]/div[2]/form[2]/div/div[1]/div/input")).sendKeys("Stela");
+		driverChrome.findElement(By.xpath("/html/body/div[2]/main/div[2]/div/div[3]/div[4]/ol/li[1]/div[2]/form[2]/div/div[1]/div/input")).sendKeys(FName);
 	}
 	
 	public void enterLastName(String LName) {
-		driverChrome.findElement(By.xpath("/html/body/div[2]/main/div[2]/div/div[3]/div[4]/ol/li[1]/div[2]/form[2]/div/div[2]/div/input")).sendKeys("Kodac");
+		driverChrome.findElement(By.xpath("/html/body/div[2]/main/div[2]/div/div[3]/div[4]/ol/li[1]/div[2]/form[2]/div/div[2]/div/input")).sendKeys(LName);
 		
 	}
 
 	public void enterAddress(String address) {
-		driverChrome.findElement(By.xpath("/html/body/div[2]/main/div[2]/div/div[3]/div[4]/ol/li[1]/div[2]/form[2]/div/fieldset/div/div[1]/div/input")).sendKeys("Addresa printesa 76");
+		driverChrome.findElement(By.xpath("/html/body/div[2]/main/div[2]/div/div[3]/div[4]/ol/li[1]/div[2]/form[2]/div/fieldset/div/div[1]/div/input")).sendKeys(address);
 		
 	}
 
 	public void enterCity(String city) {
-		driverChrome.findElement(By.xpath("/html/body/div[2]/main/div[2]/div/div[3]/div[4]/ol/li[1]/div[2]/form[2]/div/div[4]/div/input")).sendKeys("Marte");
+		driverChrome.findElement(By.xpath("/html/body/div[2]/main/div[2]/div/div[3]/div[4]/ol/li[1]/div[2]/form[2]/div/div[4]/div/input")).sendKeys(city);
 		
 	}
 
 	public void enterPostalCode(String PCode) {
-		driverChrome.findElement(By.xpath("/html/body/div[2]/main/div[2]/div/div[3]/div[4]/ol/li[1]/div[2]/form[2]/div/div[7]/div/input")).sendKeys("204487");
+		driverChrome.findElement(By.xpath("/html/body/div[2]/main/div[2]/div/div[3]/div[4]/ol/li[1]/div[2]/form[2]/div/div[7]/div/input")).sendKeys(PCode);
 		
 	}
 
@@ -49,32 +49,32 @@ public class ShippingPage {
 	}
 
 	public void enterTelNumber(String TelNr) throws InterruptedException {
-		driverChrome.findElement(By.xpath("/html/body/div[2]/main/div[2]/div/div[3]/div[4]/ol/li[1]/div[2]/form[2]/div/div[9]/div/input")).sendKeys("2044456789");
+		driverChrome.findElement(By.xpath("/html/body/div[2]/main/div[2]/div/div[3]/div[4]/ol/li[1]/div[2]/form[2]/div/div[9]/div/input")).sendKeys(TelNr);
 		Thread.sleep(3000);
 	}
 
-	public void enterAddress2(String address2) {
+	public void enterAddressForLogged(String addressForLogged) {
 		driverChrome.findElement(By.xpath("//input[@name='street[0]']")).click();	
-		driverChrome.findElement(By.xpath("//input[@name='street[0]']")).sendKeys("Addresa printesa 76");
+		driverChrome.findElement(By.xpath("//input[@name='street[0]']")).sendKeys(addressForLogged);
 	}
 
-	public void enterCountry2() {
+	public void enterCountryForLogged() {
 		driverChrome.findElement(By.xpath("/html/body/div[2]/main/div[2]/div/div[3]/div[4]/ol/li[1]/div[2]/form/div/div[5]/div/select")).click();
 		driverChrome.findElement(By.xpath("/html/body/div[2]/main/div[2]/div/div[3]/div[4]/ol/li[1]/div[2]/form/div/div[5]/div/select")).sendKeys(Keys.ARROW_DOWN);
 		driverChrome.findElement(By.xpath("/html/body/div[2]/main/div[2]/div/div[3]/div[4]/ol/li[1]/div[2]/form/div/div[5]/div/select")).sendKeys(Keys.ENTER);	
 	}
 
-	public void enterCity2(String string) {
+	public void enterCityForLogged(String cityForLogged) {
 		driverChrome.findElement(By.xpath("/html/body/div[2]/main/div[2]/div/div[3]/div[4]/ol/li[1]/div[2]/form/div/div[4]/div/input")).click();
-		driverChrome.findElement(By.xpath("/html/body/div[2]/main/div[2]/div/div[3]/div[4]/ol/li[1]/div[2]/form/div/div[4]/div/input")).sendKeys("Alebama");	
+		driverChrome.findElement(By.xpath("/html/body/div[2]/main/div[2]/div/div[3]/div[4]/ol/li[1]/div[2]/form/div/div[4]/div/input")).sendKeys(cityForLogged);	
 	}
 
-	public void enterPostalCode2(String string) {
-		driverChrome.findElement(By.xpath("/html/body/div[2]/main/div[2]/div/div[3]/div[4]/ol/li[1]/div[2]/form/div/div[7]/div/input")).sendKeys("20444");	
+	public void enterPostalCodeForLogged(String codeForLogged) {
+		driverChrome.findElement(By.xpath("/html/body/div[2]/main/div[2]/div/div[3]/div[4]/ol/li[1]/div[2]/form/div/div[7]/div/input")).sendKeys(codeForLogged);	
 	}
 
-	public void enterTelNumber2(String string) {
-		driverChrome.findElement(By.xpath("/html/body/div[2]/main/div[2]/div/div[3]/div[4]/ol/li[1]/div[2]/form/div/div[9]/div/input")).sendKeys("2044456789");
+	public void enterTelNumberForLogged(String nrForLogged) {
+		driverChrome.findElement(By.xpath("/html/body/div[2]/main/div[2]/div/div[3]/div[4]/ol/li[1]/div[2]/form/div/div[9]/div/input")).sendKeys(nrForLogged);
 	}
 
 	public void enterShipping() {

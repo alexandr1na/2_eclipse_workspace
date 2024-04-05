@@ -29,6 +29,7 @@ public class MagentoTests {
 		driverChrome.get("https://magento.softwaretestingboard.com/");
 		
 		homePage = new HomePage(driverChrome);
+		loginPage =  new LoginPage(driverChrome);
 		productDetailsPage = new ProductDetailsPage(driverChrome);
 		shippingPage = new ShippingPage(driverChrome);
 		paymentPage = new PaymentPage(driverChrome);
@@ -138,11 +139,11 @@ public class MagentoTests {
 		homePage.checkout();
 
 		// completing the address details
-		shippingPage.enterAddress2("Addresa printesa 76");
-		shippingPage.enterCity2("Alebama");
-		shippingPage.enterCountry2();
-		shippingPage.enterPostalCode2("204487");
-		shippingPage.enterTelNumber2("2044456789");
+		shippingPage.enterAddressForLogged("Addresa printesa 76");
+		shippingPage.enterCityForLogged("Alebama");
+		shippingPage.enterCountryForLogged();
+		shippingPage.enterPostalCodeForLogged("204487");
+		shippingPage.enterTelNumberForLogged("2044456789");
 		shippingPage.enterShipping();
 
 		// placing the order
@@ -174,11 +175,11 @@ public class MagentoTests {
 		homePage.checkout();
 
 		// completing the address details
-		shippingPage.enterAddress2("Addresa printesa 76");
-		shippingPage.enterCity2("Alebama");
-		shippingPage.enterCountry2();
-		shippingPage.enterPostalCode2("204487");
-		shippingPage.enterTelNumber2("2044456789");
+		shippingPage.enterAddressForLogged("Addresa printesa 76");
+		shippingPage.enterCityForLogged("Alebama");
+		shippingPage.enterCountryForLogged();
+		shippingPage.enterPostalCodeForLogged("204487");
+		shippingPage.enterTelNumberForLogged("2044456789");
 
 		// placing the order
 		paymentPage.placeOrder();

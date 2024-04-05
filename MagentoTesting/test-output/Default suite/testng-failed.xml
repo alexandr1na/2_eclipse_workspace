@@ -6,7 +6,9 @@
       <class name="testCases.MagentoTests">
         <methods>
           <include name="testOrderPlacementWithAnonymiusUserWithoutPostalCode"/>
+          <include name="testOrderPlacementWithLoggedUserWithoutShippingMethod"/>
           <include name="setUp"/>
+          <include name="testOrderPlacementWithAnonymiusUserWithoutTelNr"/>
         </methods>
       </class> <!-- testCases.MagentoTests -->
     </classes>

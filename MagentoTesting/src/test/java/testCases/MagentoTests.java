@@ -7,6 +7,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 public class MagentoTests {
@@ -36,9 +37,8 @@ public class MagentoTests {
 
 	@Test
 	public void testOrderPlacementWithAnonymiusUserRefactored() throws InterruptedException {
-
 		// test code for placing an order for a non-logged-in user
-
+		
 		// selecting the product
 		homePage.tapOnFirstProduct();
 		productDetailsPage.selectSizeAndColor();
@@ -65,14 +65,7 @@ public class MagentoTests {
 
 	@Test
 	public void testOrderPlacementWithAnonymiusUserWithoutTelNr() throws InterruptedException {
-		
 		// test code for placing an order for a non-logged-in user without tel. number
-
-		HomePage homePage = new HomePage(driverChrome);
-		ProductDetailsPage productDetailsPage = new ProductDetailsPage(driverChrome);
-		ShippingPage shippingPage = new ShippingPage(driverChrome);
-		PaymentPage paymentPage = new PaymentPage(driverChrome);
-		SuccessPage successPage = new SuccessPage(driverChrome);
 
 		// selecting the product
 		homePage.tapOnFirstProduct();
@@ -93,20 +86,13 @@ public class MagentoTests {
 		paymentPage.placeOrder();
 
 		// check error message is shown
-		successPage.confirmOrder2();
+		Assert.assertTrue(successPage.isConfirmationOrderDisplayedWithoutTelNr());
 
 	}
 
 	@Test
 	public void testOrderPlacementWithAnonymiusUserWithoutPostalCode() throws InterruptedException {
-
 		// test code for placing an order for a non-logged-in user without postal code
-
-		HomePage homePage = new HomePage(driverChrome);
-		ProductDetailsPage productDetailsPage = new ProductDetailsPage(driverChrome);
-		ShippingPage shippingPage = new ShippingPage(driverChrome);
-		PaymentPage paymentPage = new PaymentPage(driverChrome);
-		SuccessPage successPage = new SuccessPage(driverChrome);
 
 		// selecting the product
 		homePage.tapOnFirstProduct();
@@ -127,21 +113,13 @@ public class MagentoTests {
 		paymentPage.placeOrder();
 
 		// check error message is shown
-		successPage.confirmOrder2();
+		Assert.assertTrue(successPage.isConfirmationOrderDisplayedWithoutPosCode());
 
 	}
 
 	@Test
 	public void testOrderPlacementWithLoggedUser() throws InterruptedException {
-
 		// test code for placing an order for a logged user
-
-		HomePage homePage = new HomePage(driverChrome);
-		LoginPage loginPage = new LoginPage(driverChrome);
-		ProductDetailsPage productDetailsPage = new ProductDetailsPage(driverChrome);
-		ShippingPage shippingPage = new ShippingPage(driverChrome);
-		PaymentPage paymentPage = new PaymentPage(driverChrome);
-		SuccessPage successPage = new SuccessPage(driverChrome);
 
 		// creating an user 
 		homePage.loginUser();
@@ -171,21 +149,13 @@ public class MagentoTests {
 		paymentPage.placeOrder();
 
 		// check order confirmation
-		successPage.isConfirmationOrderDisplayed();
+		Assert.assertTrue(successPage.isConfirmationOrderDisplayed());
 
 	}
 
 	@Test
 	public void testOrderPlacementWithLoggedUserWithoutShippingMethod() throws InterruptedException {
-
 		// test code for placing an order for a logged user without shipping method
-
-		HomePage homePage = new HomePage(driverChrome);
-		LoginPage loginPage = new LoginPage(driverChrome);
-		ProductDetailsPage productDetailsPage = new ProductDetailsPage(driverChrome);
-		ShippingPage shippingPage = new ShippingPage(driverChrome);
-		PaymentPage paymentPage = new PaymentPage(driverChrome);
-		SuccessPage successPage = new SuccessPage(driverChrome);
 
 		// creating an user 
 		homePage.loginUser();
@@ -214,7 +184,7 @@ public class MagentoTests {
 		paymentPage.placeOrder();
 
 		// check error message is shown
-		successPage.confirmOrderWithoutShipping();
+		Assert.assertTrue(successPage.isConfirmationOrderDisplayedWithoutShipping());
 	}
 
 }

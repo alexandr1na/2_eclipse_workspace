@@ -5,10 +5,8 @@
     <classes>
       <class name="testCases.MagentoTests">
         <methods>
-          <include name="testOrderPlacementWithAnonymiusUserWithoutPostalCode"/>
-          <include name="testOrderPlacementWithLoggedUserWithoutShippingMethod"/>
           <include name="setUp"/>
-          <include name="testOrderPlacementWithAnonymiusUserWithoutTelNr"/>
+          <include name="testOrderPlacementWithAnonymiusUser"/>
         </methods>
       </class> <!-- testCases.MagentoTests -->
     </classes>

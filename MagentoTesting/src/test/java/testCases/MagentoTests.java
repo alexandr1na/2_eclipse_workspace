@@ -37,7 +37,7 @@ public class MagentoTests {
 	}
 
 	@Test
-	public void testOrderPlacementWithAnonymiusUserRefactored() throws InterruptedException {
+	public void testOrderPlacementWithAnonymiusUser() throws InterruptedException {
 		// test code for placing an order for a non-logged-in user
 		
 		// selecting the product
